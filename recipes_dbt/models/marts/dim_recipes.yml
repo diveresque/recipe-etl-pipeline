@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: dim_recipes
+    description: "Recipe dimension table"
+    columns:
+      - name: source_name
+        tests:
+          - not_null
+      - name: source_id
+        tests:
+          - not_null
+          - unique
+  - name: fct_recipe_ingredients
+    description: "Bridge table between recipes and ingredients"
+    columns:
+      - name: recipe_key
+        tests:
+          - not_null
+      - name: ingredient_key
+        tests:
+          - not_null
+  - name: dim_ingredients
+    description: "Ingredients dimension table"
+    columns:
+      - name: ingredient_key
+        tests:
+          - not_null

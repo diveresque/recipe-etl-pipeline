@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: stg_recipes
+    description: "Staged recipes from raw API ingestion"
+    columns:
+      - name: source_name
+        tests:
+          - not_null
+      - name: source_id
+        tests:
+          - not_null
+  - name: stg_ingredients
+    description: "Unnested ingredients per recipe from raw_recipes"
+    columns:
+      - name: recipe_nk
+        tests:
+          - not_null
+
+      - name: ingredient_name
+        tests:
+          - not_null

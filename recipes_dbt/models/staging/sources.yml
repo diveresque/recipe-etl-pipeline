@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: recipe_dw
+    database: crested-guru-480812-h2
+    schema: recipe_dw   # ← dataset name in BigQuery
+    tables:
+      - name: recipes

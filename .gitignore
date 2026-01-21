@@ -1,0 +1,12 @@
+.venv/
+.env
+__pycache__/
+data/
+
+# Logs / runtime
+*.log
+
+# dbt build artifacts
+target/
+dbt_packages/
+logs/
