@@ -24,10 +24,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          dbt deps
+          dbt deps --project-dir recipes_dbt
 
       - name: Run dbt build
         run: |
-          dbt build
+          dbt build --project-dir recipes_dbt
         env:
           GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_KEY }}
