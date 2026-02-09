@@ -112,6 +112,6 @@ summary = checker.get_summary()
 ## Set up for Cloud / Warehouse 
 (optional - program run separately to local run, but local run must be done first to create parquet file)
 
-### Register for GCP (Google Storage and BigQuery)
-### Create BUCKET "recipe-etl-bucket" on GCS, and DATASET "recipe_dw", TABLE "recipes" on BigQuery
-### Run load_to_bigquery.py (src/load)
+- Register for GCP (Google Storage and BigQuery)
+- Create BUCKET "recipe-etl-bucket" on GCS, and DATASET "recipe_dw", TABLE "recipes" on BigQuery
+- Run load_to_bigquery.py (src/load)
