@@ -1,0 +1,33 @@
+name: dbt CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  dbt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dbt BigQuery
+        run: |
+          pip install dbt-bigquery
+
+      - name: Install dependencies
+        run: |
+          dbt deps
+
+      - name: Run dbt build
+        run: |
+          dbt build
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_KEY }}
