@@ -26,6 +26,25 @@ jobs:
         run: |
           dbt deps --project-dir recipes_dbt
 
+      - name: Create dbt profiles.yml
+        run: |
+          mkdir -p ~/.dbt
+          cat <<EOF > ~/.dbt/profiles.yml
+          recipes_dbt:
+            target: prod
+            outputs:
+              prod:
+                type: bigquery
+                method: service-account
+                project: crested-guru-480812-h2
+                dataset: recipe_dw
+                threads: 1
+                keyfile: $(pwd)/gcp-key.json
+                timeout_seconds: 300
+                location: US
+          EOF
+
+
       - name: Run dbt build
         run: |
           dbt build --project-dir recipes_dbt
