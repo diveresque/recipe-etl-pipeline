@@ -11,6 +11,9 @@ models:
         tests:
           - not_null
           - unique
+      - name: name_length
+        tests:
+          - not_null
   - name: fct_recipe_ingredients
     description: "Bridge table between recipes and ingredients"
     columns:
