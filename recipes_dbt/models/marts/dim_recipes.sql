@@ -5,7 +5,7 @@ SELECT
   name,
   category,
   area,
-  instructions
+  instructions,
   -- NEW COLUMN to test CI
   length(name) as name_length
 FROM {{ ref('stg_recipes') }}
